@@ -1,16 +1,16 @@
 {
-    "name": "vendor_slug/package_slug",
-    "description": ":package_description",
+    "name": "onurmutlu/parasut-laravel8",
+    "description": "This is my package Parasut",
     "keywords": [
-        ":vendor_name",
-        "package_slug"
+        "onurmutlu",
+        "parasut-laravel8"
     ],
-    "homepage": "https://github.com/vendor_slug/package_slug",
+    "homepage": "https://github.com/onurmutlu/parasut-laravel8",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "SiyahKare",
+            "email": "siyahkare@siyhkare.com",
             "role": "Developer"
         }
     ],
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "Onurmutlu\\Parasut\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Onurmutlu\\Parasut\\Tests\\": "tests"
         }
     },
     "scripts": {
