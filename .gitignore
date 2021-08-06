@@ -10,4 +10,9 @@ phpunit.xml
 psalm.xml
 vendor
 .php-cs-fixer.cache
-
+/vendor
+/.idea
+/composer.lock
+/.Ds_Store
+/index.php
+token.ini
