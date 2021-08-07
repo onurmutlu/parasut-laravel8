@@ -13,7 +13,7 @@ class Account extends Base
         );
     }
 
-    public function show($id , $data = [])
+    public function show($id, $data = [])
     {
         return $this->client->request(
             'contacts/' . $id,
@@ -22,7 +22,7 @@ class Account extends Base
         );
     }
 
-    public function update($id , $data = [])
+    public function update($id, $data = [])
     {
         return $this->client->request(
             'contacts/' . $id,

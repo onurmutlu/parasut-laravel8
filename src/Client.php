@@ -15,14 +15,14 @@ class Client
 
     public function __construct($config = null)
     {
-        if($config === null){
+        if ($config === null) {
             $config = [
-                'client_id'     => env('PARASUT_CLIENT_ID'),
-                'username'      => env('PARASUT_USERNAME'),
-                'password'      => env('PARASUT_PASSWORD'),
+                'client_id' => env('PARASUT_CLIENT_ID'),
+                'username' => env('PARASUT_USERNAME'),
+                'password' => env('PARASUT_PASSWORD'),
                 "grant_type" => "password",
                 "redirect_uri" => "urn:ietf:wg:oauth:2.0:oob",
-                'company_id'    => env('PARASUT_COMPANY_ID'),
+                'company_id' => env('PARASUT_COMPANY_ID'),
             ];
         }
         $this->config = $config;
@@ -85,7 +85,7 @@ class Client
 
         $ch = curl_init();
         if (is_array($params) && $method == 'GET' && count($params) > 0) {
-            $path = rtrim($path,'/');
+            $path = rtrim($path, '/');
             $path .= '?'.http_build_query($params);
         }
 
@@ -107,13 +107,16 @@ class Client
             case 'PUT':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
                 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
+
                 break;
             case 'POST':
                 curl_setopt($ch, CURLOPT_POST, 1);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
+
                 break;
             case 'DELETE':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+
                 break;
         }
         $jsonData = curl_exec($ch);
@@ -124,26 +127,37 @@ class Client
         switch ($httpCode) {
             case '400':
                 $msg = strlen($jsonData) < 3 ? $msg = 'Bad Request' : $jsonData;
+
                 throw new Exception($msg, 400);
+
                 break;
             case '401':
                 $msg = strlen($jsonData) < 3 ? $msg = 'Authentication Error' : $jsonData;
+
                 throw new Exception($msg, 401);
+
                 break;
             case '404':
                 $msg = strlen($jsonData) < 3 ? $msg = 'Not Found Error' : $jsonData;
+
                 throw new Exception($msg, 404);
+
                 break;
             case '422':
                 $msg = strlen($jsonData) < 3 ? $msg = 'Unprocessable Entity Error' : $jsonData;
+
                 throw new Exception($msg, 422);
+
                 break;
             case '500':
                 $msg = strlen($jsonData) < 3 ? $msg = 'Internal Server Error' : $jsonData;
+
                 throw new Exception($msg, 500);
+
                 break;
             default:
                 return $response;
+
                 break;
         }
     }

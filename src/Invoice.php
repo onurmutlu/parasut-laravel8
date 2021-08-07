@@ -2,27 +2,25 @@
 
 namespace Onurmutlu\Parasut;
 
-Class Invoice extends Base
+class Invoice extends Base
 {
     public function list($params = [])
     {
         return $this->client->request(
-          'sales_invoices/',
-          $params,
-          'GET'
+            'sales_invoices/',
+            $params,
+            'GET'
         );
     }
-
 
     public function show($id, $params = [])
     {
         return $this->client->request(
-          'sales_invoices/'.$id,
-          $params,
-          'GET'
+            'sales_invoices/'.$id,
+            $params,
+            'GET'
         );
     }
-
 
     public function checkPdf($id)
     {
@@ -34,6 +32,7 @@ Class Invoice extends Base
         if (isset($response['included']) && isset($response['included'][0])) {
             return ['type' => $response['included'][0]['type'], 'id' => $response['included'][0]['id']];
         }
+
         return false;
     }
 
@@ -44,6 +43,7 @@ Class Invoice extends Base
             $data
         );
     }
+
     public function create($data)
     {
         return $this->client->request(
@@ -54,7 +54,7 @@ Class Invoice extends Base
 
     public function delete($id)
     {
-        return $this->client->request('sales_invoices/'.$id,[],'DELETE');
+        return $this->client->request('sales_invoices/'.$id, [], 'DELETE');
     }
 
     public function pay($id, $data)
@@ -63,6 +63,7 @@ Class Invoice extends Base
             'sales_invoices/'.$id.'/payments',
             $data
         );
+
         return $resp;
     }
 
@@ -90,7 +91,6 @@ Class Invoice extends Base
             [],
             'GET'
         );
-
     }
 
     public function pdf_e_archive($id)
@@ -113,7 +113,7 @@ Class Invoice extends Base
     public function show_e_invoice($id)
     {
         return $this->client->request(
-          'e_invoices/'.$id,
+            'e_invoices/'.$id,
             [],
             'GET'
         );
