@@ -16,9 +16,9 @@
     ],
     "require": {
         "php": "^8.0",
-        "illuminate/console": "^5.8.33 || ^6.0 || ^7.0",
-        "illuminate/http": "^5.8.33 || ^6.0 || ^7.0",
-        "illuminate/support": "^5.8.33 || ^6.0 || ^7.0",
+        "illuminate/console": "^8.x",
+        "illuminate/http": "^8.x",
+        "illuminate/support": "^8.x",
         "ext-curl": "*"
     },
     "require-dev": {
