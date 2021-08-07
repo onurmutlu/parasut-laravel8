@@ -4,7 +4,6 @@ namespace Onurmutlu\Parasut;
 
 class PurchaseBill extends Base
 {
-
     public function create($data)
     {
         return $this->client->request(
@@ -13,7 +12,7 @@ class PurchaseBill extends Base
         );
     }
 
-    public function show($id , $data = [])
+    public function show($id, $data = [])
     {
         return $this->client->request(
             'purchase_bills/' . $id,
@@ -22,7 +21,7 @@ class PurchaseBill extends Base
         );
     }
 
-    public function edit($id , $data = [])
+    public function edit($id, $data = [])
     {
         return $this->client->request(
             'products/' . $id,
@@ -31,7 +30,7 @@ class PurchaseBill extends Base
         );
     }
 
-    public function pay($id , $data = [])
+    public function pay($id, $data = [])
     {
         return $this->client->request(
             'products/' . $id . '/payments',

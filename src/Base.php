@@ -8,8 +8,9 @@ class Base
 
     public function __construct(Client $client = null)
     {
-        if( $client === null )
+        if ($client === null) {
             $client = app('Onurmutlu\Parasut\Client');
+        }
         $this->client = $client;
     }
 
@@ -17,17 +18,17 @@ class Base
      * @param $params
      * @access private
      */
-    static function params_replace($params){
+    public static function params_replace($params)
+    {
         $pararr = [
             'page_size' => 'page[size]',
-            'page_number' => 'page[number]'
+            'page_number' => 'page[number]',
         ];
-        foreach($pararr as $key => $val){
-            if(array_key_exists($key,$params)){
+        foreach ($pararr as $key => $val) {
+            if (array_key_exists($key, $params)) {
                 $params[$val] = $params[$key];
                 unset($params[$key]);
             }
         }
-
     }
 }
