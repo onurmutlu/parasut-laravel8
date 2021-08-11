@@ -4,7 +4,6 @@ namespace Onurmutlu\Parasut;
 
 class Account extends Base
 {
-
     public function list($params = [])
     {
         $params = parent::params_replace($params);

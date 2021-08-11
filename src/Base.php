@@ -32,6 +32,5 @@ class Base
         }
 
         return $params;
-
     }
 }
