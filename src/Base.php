@@ -30,5 +30,8 @@ class Base
                 unset($params[$key]);
             }
         }
+
+        return $params;
+
     }
 }

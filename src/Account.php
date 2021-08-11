@@ -4,6 +4,18 @@ namespace Onurmutlu\Parasut;
 
 class Account extends Base
 {
+
+    public function list($params = [])
+    {
+        $params = parent::params_replace($params);
+
+        return collect($this->client->request(
+            'contacts/',
+            $params,
+            'GET'
+        ));
+    }
+
     public function create($data)
     {
         return $this->client->request(
